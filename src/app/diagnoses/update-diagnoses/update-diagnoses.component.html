@@ -1,0 +1,74 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center"> Registro de Mantenimiento</h3>
+    <form (ngSubmit)="onSubmit()" #diagnosesForm="ngForm">
+        <div class="form-group">
+            <div class="container">
+
+
+                <div class="row">
+
+                    <label>laboratorio: </label>
+                    <select class="form-control"  name="laboratorio" id="laboratorio" [(ngModel)]="diagnostic.laboratory.id"
+                    #laboratory="ngModel">
+                        <option value="" disabled selected>Seleccione El laboratorio</option>
+                        
+                        <option *ngFor="let laboratory of laboratories" [value]="laboratory.id">{{laboratory.name}}</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="row">
+                    <label> Fecha: </label>
+                    <input type="date" class="form-control" id="fecha"
+                     [(ngModel)]= "diagnostic.date"
+                     name="fecha"
+                     #date = "ngModel">
+                </div>
+
+
+                <div class="row">
+
+                    <label> Service Tag: </label>
+                    <input type="text" class="form-control" id="serviceTag"
+                     [(ngModel)]= "diagnostic.serviceTag"
+                     name="serviceTag"
+                     required
+                     minlength="7"
+                     maxlength="15"
+                     placeholder="Digite el Service Tag"
+                     #serviceTag = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="serviceTag.invalid && (serviceTag.dirty || serviceTag.touched)">
+                     <div *ngIf="serviceTag.errors.required">
+                       Digite el Service Tag del Diagnostico por favor
+                     </div>
+                     <div *ngIf="serviceTag.errors.minlength">
+                       Digite un Service Tag con un minimo 20 caracteres
+                     </div>
+                     <div *ngIf="serviceTag.errors.maxlength">
+                       Digite un Service Tag con un maximo 45 caracteres
+                     </div>
+                   </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+    
+              <label> Descripcion: </label>
+              <textarea type="text" class="form-control" id="descripcion"
+              [(ngModel)]= "diagnostic.description"
+              name="descripcion"></textarea>
+  
+  
+          </div>
+
+
+
+          <button class="btn btn-info" [disabled]="!diagnosesForm.form.valid">Actualizar</button>
+        </div>
+    </form>
+</div>

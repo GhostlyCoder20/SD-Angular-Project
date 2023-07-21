@@ -1,0 +1,44 @@
+<body>
+    <div class="table">
+        <div class="table_header">
+            <p>Lista de Laboratorios</p>
+            <div>
+                <input placeholder="laboratorio">
+                <button (click)="goToRegisterLaboratory()"  class="add_new">+ Añadir Nuevo Laboratorio</button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let laboratory of laboratories">
+                        <td>{{laboratory.id}}</td>
+                        <td>{{laboratory.name}}</td>
+                        <td>{{laboratory.description}}</td>
+                        <td>
+                            <button (click)="goToUpdateLaboratory(laboratory.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button (click)="deleteLaboratory(laboratory.id)"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+
+            <div><i class="fa-solid fa-angles-left"></i></div>
+            <div><i class="fa-solid fa-chevron-left"></i></div>
+            <div>1</div>
+            <div>2</div>
+            <div><i class="fa-solid fa-angles-right"></i></div>
+            <div><i class="fa-solid fa-chevron-right"></i></div>
+
+        </div>
+    </div>
+</body>

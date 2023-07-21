@@ -1,0 +1,52 @@
+<body>
+  <div class="table">
+      <div class="table_header">
+          <p>Lista de Diagnosticos</p>
+          <div>
+              <input placeholder="laboratorio">
+              <button (click)="goToRegisterDiagnostic()"  class="add_new">+ Añadir Nuevo Diagnosticos</button>
+          </div>
+      </div>
+      <div class="table_section">
+          <table>
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Laboratorio</th>
+                      <th>Service Tag</th>
+                      <th>Fecha</th>
+                      <th>Descripcion</th>
+                      <th>Accion</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let diagnostic of diagnoses">
+                      <td>{{diagnostic.id}}</td>
+                      <td>{{diagnostic.laboratory.name}}</td>
+                      <td>{{diagnostic.serviceTag}}</td>
+                      <td>{{diagnostic.date}}</td>
+                      <td>{{diagnostic.description}}</td>
+                      <td>
+                          <button (click)="goToUpdateDiagnostic(diagnostic.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                          <button (click)="deleteDiagnostic(diagnostic.id)"><i class="fa-solid fa-trash"></i></button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="pagination">
+
+          <div><i class="fa-solid fa-angles-left"></i></div>
+          <div><i class="fa-solid fa-chevron-left"></i></div>
+          <div>1</div>
+          <div>2</div>
+          <div><i class="fa-solid fa-angles-right"></i></div>
+          <div><i class="fa-solid fa-chevron-right"></i></div>
+
+      </div>
+  </div>
+</body>
+
+
+
+

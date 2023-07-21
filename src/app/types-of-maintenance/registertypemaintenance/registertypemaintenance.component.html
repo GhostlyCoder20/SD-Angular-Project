@@ -1,0 +1,35 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de Tipo de Mantenimiento</h3>
+    <form (ngSubmit)="onSubmit()" #typeMaintenanceForm = "ngForm">
+        <div class="form-group">
+
+            <label> Nombre: </label>
+            <input type="text" class="form-control" id="nombre"
+            [(ngModel)]= "typeMaintenance.name"
+            name="nombre"
+            required
+            minlength="6"
+            maxlength="15"
+            placeholder="Digite su nombre"
+            #name = "ngModel">
+            <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                <div *ngIf="name.errors.required">
+                    Digite un nombre por favor
+                </div>
+                <div *ngIf="name.errors.minlength">
+                    Digite el nombre del laboratorio con un maximo 7 caracteres
+                </div>
+                <div *ngIf="name.errors.maxlength">
+                    Digite el nombre del laboratorio con un maximo 15 caracteres
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+            <button class="btn btn-success" [disabled]="!typeMaintenanceForm.form.valid">Guardar</button>
+    </form>
+</div>
+

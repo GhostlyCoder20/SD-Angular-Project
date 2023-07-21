@@ -1,0 +1,61 @@
+<body>
+    <div class="table">
+        <div class="table_header">
+            <p>Lista de Computadoras</p>
+            <div>
+                <input placeholder="computadora">
+                <button (click)="goToRegisterComputer()"  class="add_new">+ Añadir Nueva Computadora</button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Procesador</th>
+                        <th>RAM</th>
+                        <th>Almacenamiento</th>
+                        <th>Service Tag</th>
+                        <th>Numero inventario</th>
+                        <th>ubicacion</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let computer of computers">
+                        <td>{{computer.id}}</td>
+                        <td>{{computer.name}}</td>
+                        <td>{{computer.description}}</td>
+                        <td>{{computer.brand}}</td>
+                        <td>{{computer.model}}</td>
+                        <td>{{computer.processor}}</td>
+                        <td>{{computer.ram}}</td>
+                        <td>{{computer.storage}}</td>
+                        <td>{{computer.serviceTag}}</td>
+                        <td>{{computer.noInventory}}</td>
+                        <td>{{computer.location}}</td>
+                        <td>
+                            <button (click)="goToUpdateComputer(computer.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button (click)="deleteComputer(computer.id)"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+
+            <div><i class="fa-solid fa-angles-left"></i></div>
+            <div><i class="fa-solid fa-chevron-left"></i></div>
+            <div>1</div>
+            <div>2</div>
+            <div><i class="fa-solid fa-angles-right"></i></div>
+            <div><i class="fa-solid fa-chevron-right"></i></div>
+
+        </div>
+    </div>
+</body>
+

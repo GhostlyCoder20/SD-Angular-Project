@@ -1,0 +1,261 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Actualizacion de Computadora</h3>
+    <form (ngSubmit)="onSubmit()" >
+        <div class="form-group">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <label> Nombre: </label>
+                    <input type="text" class="form-control" id="nombre"
+                     [(ngModel)]= "computer.name"
+                     name="nombre"
+                     required
+                     minlength="7"
+                     maxlength="15"
+                     placeholder="Digite su nombre"
+                     #name = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                     <div *ngIf="name.errors.required">
+                       Digite el nombre de la Computadora por favor
+                     </div>
+                     <div *ngIf="name.errors.minlength">
+                       Digite el nombre del laboratorio con un maximo 7 caracteres
+                     </div>
+                     <div *ngIf="name.errors.maxlength">
+                       Digite el nombre del laboratorio con un maximo 15 caracteres
+                     </div>
+                   </div>
+
+                </div>
+
+                <div class="row">
+
+                    <label> Marca: </label>
+                    <input type="text" class="form-control" id="marca"
+                     [(ngModel)]= "computer.brand"
+                     name="marca"
+                     required
+                     minlength="4"
+                     maxlength="8"
+                     placeholder="Digite la marca"
+                     #brand = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="brand.invalid && (brand.dirty || brand.touched)">
+                     <div *ngIf="brand.errors.required">
+                       Digite la marca de la Computadora por favor
+                     </div>
+                     <div *ngIf="brand.errors.minlength">
+                       Digite el nombre de la marca con un minimo 4 caracteres
+                     </div>
+                     <div *ngIf="brand.errors.maxlength">
+                       Digite el nombre de la marca con un maximo 8 caracteres
+                     </div>
+                   </div>
+
+                </div>
+
+                <div class="row">
+
+                    <label> Modelo: </label>
+                    <input type="text" class="form-control" id="modelo"
+                     [(ngModel)]= "computer.model"
+                     name="modelo"
+                     required
+                     minlength="4"
+                     maxlength="15"
+                     placeholder="Digite el modelo"
+                     #model = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="model.invalid && (model.dirty || model.touched)">
+                     <div *ngIf="model.errors.required">
+                       Digite el nombre de modelo de la Computadora por favor
+                     </div>
+                     <div *ngIf="model.errors.minlength">
+                       Digite el nombre del  modelo con un minimo 10 caracteres
+                     </div>
+                     <div *ngIf="model.errors.maxlength">
+                        Digite el nombre del  modelo con un maximo 20 caracteres
+                     </div>
+                   </div>
+
+
+
+                </div>
+
+                <div class="row">
+
+                    <label> Procesador: </label>
+                    <input type="text" class="form-control" id="procesador"
+                     [(ngModel)]= "computer.processor"
+                     name="procesador"
+                     required
+                     minlength="2"
+                     maxlength="5"
+                     placeholder="Digite el procesador"
+                     #processor = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="processor.invalid && (processor.dirty || processor.touched)">
+                     <div *ngIf="processor.errors.required">
+                       Digite el nombre del procesador de la Computadora  por favor
+                     </div>
+                     <div *ngIf="processor.errors.minlength">
+                       Digite el nombre de un procesador con un minimo 2 caracteres
+                     </div>
+                     <div *ngIf="processor.errors.maxlength">
+                        Digite el nombre de un procesador con un maximo 5 caracteres
+                     </div>
+                   </div>
+
+
+
+                </div>
+
+                <div class="row">
+
+                    <label> RAM: </label>
+                    <input type="text" class="form-control" id="ram"
+                     [(ngModel)]= "computer.ram"
+                     type="number"
+                     name="ram"
+                     required
+                     min="0" 
+                     max="16" 
+                     step="1"
+                     placeholder="Defina el Ram"
+                     #ram = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="ram.invalid && (ram.dirty || ram.touched)">
+                     <div *ngIf="ram.errors.required">
+                       Digite la ram de la Computadora por favor
+                     </div>
+                   </div>
+
+
+
+                </div>
+
+                <div class="row">
+
+                    <label> Almacenamiento: </label>
+                    <input type="number" class="form-control" id="almacenamiento"
+                     [(ngModel)]= "computer.storage"
+                     name="almacenamiento"
+                     required
+                     pattern="[0-9]+([.,][0-9]+)?"
+                     placeholder="Digite el almacenamiento"
+                     #storage = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="storage.invalid && (storage.dirty || storage.touched)">
+                     <div *ngIf="storage.errors.required">
+                       Digite el almacenamiento de la Computadora por favor
+                     </div>
+                     <div *ngIf="storage.errors.pattern">
+                        Digite solo numeros decimales para el almacenamiento
+                      </div>
+                   </div>
+
+
+
+                </div>
+
+                <div class="row">
+
+                    <label> Service Tag: </label>
+                    <input type="text" class="form-control" id="serviceTag"
+                     [(ngModel)]= "computer.serviceTag"
+                     name="serviceTag"
+                     required
+                     minlength="7"
+                     maxlength="15"
+                     placeholder="Digite el Service Tag"
+                     #serviceTag = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="serviceTag.invalid && (serviceTag.dirty || serviceTag.touched)">
+                     <div *ngIf="serviceTag.errors.required">
+                       Digite el Service Tag de la Computadora por favor
+                     </div>
+                     <div *ngIf="serviceTag.errors.minlength">
+                       Digite un Service Tag con un minimo 20 caracteres
+                     </div>
+                     <div *ngIf="serviceTag.errors.maxlength">
+                       Digite un Service Tag con un maximo 45 caracteres
+                     </div>
+                   </div>
+
+
+
+                </div>
+
+                <div class="row">
+
+                    <label> Ubicacion: </label>
+                    <input type="number" class="form-control" id="ubicacion"
+                     [(ngModel)]= "computer.location"
+                     name="ubicacion"
+                     required
+                     pattern="[0-9]"
+                     placeholder="Digite la ubicacion"
+                     #location = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="location.invalid && (location.dirty || location.touched)">
+                     <div *ngIf="location.errors.required">
+                       Digite la ubicacion (numeros) de la Computadora por favor
+                     </div>
+                     <div *ngIf="location.errors.pattern">
+                        Solo debe digitar numeros del 0 al 9
+                      </div>  
+                   </div>
+                </div>
+
+
+                <div class="row">
+
+                    <label> Numero de Inventario: </label>
+                    <input type="number" class="form-control" id="noInventario"
+                     [(ngModel)]= "computer.noInventory"
+                     name="noInventario"
+                     required
+                     pattern="[0-9]"
+                     placeholder="Digite el numero de Inventario"
+                     #noInventory = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="location.invalid && (location.dirty || location.touched)">
+                     <div *ngIf="noInventory.errors.required">
+                       Digite el numero de Inventario de la Computadora por favor
+                     </div>
+                     <div *ngIf="noInventory.errors.pattern">
+                        Solo debe digitar numeros del 0 al 9
+                      </div>  
+                   </div>
+                </div>
+
+                
+
+                
+
+                
+
+            </div>
+
+        </div>
+
+            <div class="form-group">
+    
+                <label> Descripcion: </label>
+                <textarea type="text" class="form-control" id="descripcion"
+                [(ngModel)]= "computer.description"
+                name="descripcion"></textarea>
+    
+    
+            </div>
+
+
+
+            <button class="btn btn-info">Editar</button>
+    </form>
+</div>
+
+

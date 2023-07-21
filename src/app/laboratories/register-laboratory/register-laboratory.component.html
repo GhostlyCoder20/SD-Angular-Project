@@ -1,0 +1,45 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de laboratorio</h3>
+    <form (ngSubmit)="onSubmit()" #laboratoryForm = "ngForm">
+        <div class="form-group">
+
+            <label> Nombre: </label>
+            <input type="text" class="form-control" id="nombre"
+            [(ngModel)]= "laboratory.name"
+            name="nombre"
+            required
+            minlength="7"
+            maxlength="15"
+            placeholder="Digite su nombre"
+            #name = "ngModel">
+            <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                <div *ngIf="name.errors.required">
+                    Digite un nombre por favor
+                </div>
+                <div *ngIf="name.errors.minlength">
+                    Digite el nombre del laboratorio con un maximo 7 caracteres
+                </div>
+                <div *ngIf="name.errors.maxlength">
+                    Digite el nombre del laboratorio con un maximo 15 caracteres
+                </div>
+
+            </div>
+
+
+        </div>
+
+            <div class="form-group">
+    
+                <label> Descripcion: </label>
+                <textarea type="text" class="form-control" id="descripcion"
+                [(ngModel)]= "laboratory.description"
+                name="descripcion"></textarea>
+    
+    
+            </div>
+
+
+
+            <button class="btn btn-success" [disabled]="!laboratoryForm.form.valid">Guardar</button>
+    </form>
+</div>

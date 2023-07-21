@@ -1,0 +1,85 @@
+
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de Computadora</h3>
+    <form (ngSubmit)="onSubmit()" #computerForm = "ngForm">
+        <div class="form-group">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <label> Fecha: </label>
+                    <input type="date" class="form-control" id="fecha"
+                     [(ngModel)]= "maintenance.date"
+                     name="nombre"
+                     #name = "ngModel">
+                </div>
+
+                <div class="row">
+
+                    <label> Tipo de limpieza: </label>
+                    <input type="text" class="form-control" id="tipoLimpieza"
+                     [(ngModel)]= "maintenance.cleanType"
+                     name="tipoLimpieza"
+                     required
+                     minlength="5"
+                     maxlength="45"
+                     placeholder="Defina el tipo de limpieza"
+                     #cleanType = "ngModel">
+
+                   <div class="alert alert-danger" *ngIf="cleanType.invalid && (cleanType.dirty || cleanType.touched)">
+                     <div *ngIf="cleanType.errors.required">
+                       Digite el tipo de Limpieza del mantenimiento por favor
+                     </div>
+                     <div *ngIf="cleanType.errors.minlength">
+                       Digite el tipo de Limpieza del mantenimiento con un minimo 5 caracteres
+                     </div>
+                     <div *ngIf="cleanType.errors.maxlength">
+                       Digite el tipo de Limpieza del mantenimiento con un maximo 45 caracteres
+                     </div>
+                   </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <label>Computadora: </label>
+                    <select class="form-control"  name="computadora" id="computadora" [(ngModel)]="maintenance.computer.id"
+                    #computer="ngModel">
+                        <option value="" disabled selected>Seleccione La computadora</option>
+                        
+                        <option *ngFor="let computer of computers" [value]="computer.id">{{computer.name}}</option>
+
+                    </select>
+
+                </div>
+
+
+
+
+
+
+
+ 
+
+            </div>
+
+        </div>
+
+            <div class="form-group">
+    
+                <label> Descripcion: </label>
+                <textarea type="text" class="form-control" id="descripcion"
+                [(ngModel)]= "maintenance.description"
+                name="descripcion"></textarea>
+    
+    
+            </div>
+
+
+
+            <button class="btn btn-success" [disabled]="!computerForm.form.valid">Guardar</button>
+    </form>
+</div>
+
